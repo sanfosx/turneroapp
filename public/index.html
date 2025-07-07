@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas - Pizzería Minimalista</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <h1 class="logo">Pizza Reserva</h1>
+        <p class="subtitle">Reserva tu mesa de forma sencilla</p>
+      </div>
+    </header>
+    
+    <div class="steps-container">
+      <div class="steps">
+        <div class="step active" id="step1">
+          <div class="step-circle">1</div>
+        </div>
+        <div class="step" id="step2">
+          <div class="step-circle">2</div>
+        </div>
+        <div class="step" id="step3">
+          <div class="step-circle">3</div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="step-progress"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="app-content">
+      <!-- Paso 1: Selección de personas -->
+      <div class="step-content active" id="step-content1">
+        <h2 class="step-title">¿Para cuántas personas?</h2>
+        <div class="form-container">
+          <div class="people-selector">
+            <div class="people-option" data-people="1">1</div>
+            <div class="people-option" data-people="2">2</div>
+            <div class="people-option" data-people="3">3</div>
+            <div class="people-option" data-people="4">4</div>
+            <div class="people-option" data-people="5">5</div>
+            <div class="people-option" data-people="6">6</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Paso 2: Selección de fecha y hora -->
+      <div class="step-content" id="step-content2">
+        <h2 class="step-title">Selecciona una fecha</h2>
+        <div class="form-container">
+          <div class="date-time-container">
+            <div class="calendar-container">
+              <div class="calendar-header">
+                <button class="calendar-btn prev-month"><i class="fas fa-chevron-left"></i></button>
+                <div class="calendar-title" id="current-month">Junio 2023</div>
+                <button class="calendar-btn next-month"><i class="fas fa-chevron-right"></i></button>
+              </div>
+              
+              <div class="calendar" id="calendar"></div>
+            </div>
+            
+            <div class="times-container" id="times-container">
+              <div class="time-slots-container">
+                <div class="time-header">
+                  <div class="time-title">Horas disponibles</div>
+                  <div class="selected-date" id="selected-date">Selecciona una fecha</div>
+                </div>
+                
+                <div class="time-slots" id="time-slots">
+                  <div class="time-slot disabled">Selecciona una fecha</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Paso 3: Datos personales -->
+      <div class="step-content" id="step-content3">
+        <h2 class="step-title">Tus datos</h2>
+        <div class="form-container">
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" placeholder="Ingresa tu nombre completo" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" placeholder="Ingresa tu teléfono" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Ingresa tu email" required>
+          </div>
+          
+          <div class="btn-container">
+            
+            <button class="btn btn-submit" id="submitReserva" disabled>
+              Confirmar <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Resultado de la reserva -->
+      <div class="result-container" id="result-container" style="display: none;">
+        <div class="result-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="result-title">¡Reserva Confirmada!</h2>
+        
+        <div class="result-card">
+          <div class="reserva-detail">
+            <div class="detail-label">ID Reserva:</div>
+            <div class="detail-value"><span class="reserva-id" id="reservaId">RES-758942</span></div>
+          </div>
+          <div class="reserva-detail">
+            <div class="detail-label">Nombre:</div>
+            <div class="detail-value" id="reservaNombre">Juan Pérez</div>
+          </div>
+          <div class="reserva-detail">
+            <div class="detail-label">Personas:</div>
+            <div class="detail-value" id="reservaPersonas">4</div>
+          </div>
+          <div class="reserva-detail">
+            <div class="detail-label">Fecha:</div>
+            <div class="detail-value" id="reservaFecha">30 de Junio, 2023</div>
+          </div>
+          <div class="reserva-detail">
+            <div class="detail-label">Hora:</div>
+            <div class="detail-value" id="reservaHora">19:00</div>
+          </div>
+        </div>
+        
+        <button class="btn btn-submit" onclick="nuevaReserva()">
+          <i class="fas fa-plus"></i> Nueva Reserva
+        </button>
+      </div>
+      
+      <!-- Carga -->
+      <div class="loading" id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Procesando tu reserva...</p>
+      </div>
+    </div>
+    
+    <footer>
+      <p>Sistema de Reservas para Pizzería © 2023</p>
+    </footer>
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>
