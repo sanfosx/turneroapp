@@ -28,7 +28,7 @@ const stepsContainer = document.querySelector('.steps-container');
 
 // Configuración del proxy
 const PROXY_URL = '/api/proxy';
-const WEB_APP_URL = 'TU_WEB_APP_URL'; // Reemplazar con tu URL de Google Web App
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwrRAE5oPxXNU9xVkBUZO27wfVYoKRVPyVNVxgsalJpoa9XFfWGbjLQSXieIDl2QZ7a/exec'; // Reemplazar con tu URL de Google Web App
 
 // Configuración inicial
 document.addEventListener('DOMContentLoaded', function() {
